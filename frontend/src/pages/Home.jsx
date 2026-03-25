@@ -138,9 +138,18 @@ export default function Home() {
                 return (
                   <article className={styles.feedCard} key={post._id}>
                     <div className={styles.cardHeader}>
-                      <div>
-                        <p className={styles.authorName}>{author}</p>
-                        <p className={styles.postMeta}>{formatDate(post.createdAt)}</p>
+                      <div className={styles.authorBlock}>
+                        <span className={styles.avatar} aria-hidden>
+                          {post?.userId?.profilePicture ? (
+                            <img src={post.userId.profilePicture} alt="" className={styles.avatarImg} />
+                          ) : (
+                            (author || 'U').slice(0, 1).toUpperCase()
+                          )}
+                        </span>
+                        <div>
+                          <p className={styles.authorName}>{author}</p>
+                          <p className={styles.postMeta}>{formatDate(post.createdAt)}</p>
+                        </div>
                       </div>
                       {!isOwnPost && authorId && (
                         <button

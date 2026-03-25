@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
     isAdmin: { type: Boolean, default: false },
     isSuperAdmin: { type: Boolean, default: false },
     isSuperAdmin: { type: Boolean, default: false },
+    notificationsLastSeenAt: { type: Date, default: null },
+    resetPasswordTokenHash: { type: String, default: null, index: true },
+    resetPasswordExpiresAt: { type: Date, default: null, index: true },
 },{timestamps: true})
 const userModel = mongoose.model('User', userSchema)
 export default userModel;
