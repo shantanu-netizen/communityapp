@@ -16,7 +16,7 @@ const uploadFile = async (file) => {
         }
         const uploadParams = {
             ACL: "public-read",
-            Bucket: "fsdclassbucket",
+            Bucket: "fsdclass",
             Key: `fsdclass/${Date.now()}-${file.originalname}`,
             Body: file.buffer
         }
